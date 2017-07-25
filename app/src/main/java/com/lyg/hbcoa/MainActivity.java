@@ -5,9 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.MotionEvent;
@@ -18,8 +16,6 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-
-import java.io.File;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
@@ -36,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode==FILECHOOSER_RESULTCODE) {
             if (null != mUploadMessage) {
+
+
                 Uri result = data == null || resultCode != RESULT_OK ? null
                         : data.getData();
                 mUploadMessage.onReceiveValue(result);
